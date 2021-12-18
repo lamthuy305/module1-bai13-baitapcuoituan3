@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="number" placeholder="Nhập số cần tìm">
+<button onclick="traCuu()">Tìm kiếm trong mảng</button>
+<p id="ketQua"></p>
+<script>
+    let arr = [1,2,3,4,5,6,7,8,9,5,4,5,6,5,4,8,6,2,4,5,4,2,8];
+    function traCuu() {
+        let number = document.getElementById("number").value;
+        let index = -1;
+        let count = 0;
+        let text = "";
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] == number) {
+                index = i;
+               count ++;
+                text += i + " ";
+            }
+        }
+        if (index != -1) {
+            document.getElementById("ketQua").innerHTML = number + " xuất hiện trong bảng " + count + " lần, tại các vị trí " + text;
+        } else {
+            document.getElementById("ketQua").innerHTML = number + " không có trong mảng"
+        }
+    }
+</script>
+</body>
+</html>
