@@ -8,22 +8,28 @@
 <script>
     let arr = [
         [1, 2, 1, 24],
-        [8, 11, 9, 4],
+        [8, 11, 9, 4, 414],
         [7, 0, 7, 27],
-        [7, 4, 28, 14],
+        [7, 4, 28, 14, 200, 42,45, 77],
         [3, 10, 26, 7]
     ];
-    let max;
-    const doDai = arr[0].length;
-    for (let i = 0 ; i < doDai ; i++) {
-        max = arr[0][i];
-        for (let j = 0 ; j < arr.length; j++) {
-           if (max < arr[j][i]) {
-               max = arr[j][i];
-           }
+    let text = '';
+    let maxCol = [];
+    for (row = 0; row< arr.length; row++){
+        for (col = 0; col<arr[row].length; col++){
+            if (typeof (maxCol[col]) == 'undefined' ) {
+                maxCol[col] = arr[row][col];
+            }
+            if (maxCol[col] < arr[row][col]){
+                maxCol[col] = arr[row][col];
+            }
         }
-        document.write("Giá trị lớn nhất của cột thứ " + i + " là " + max + "<br>");
     }
+    for (let i in maxCol) {
+        text += 'Giá trị lớn nhất trong cột '+ i+' là '+ maxCol[i]+'<br>';
+    }
+
+    document.write(text)
 
 </script>
 </body>

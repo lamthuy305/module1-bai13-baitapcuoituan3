@@ -10,17 +10,27 @@
         [1, 2, 1, 24],
         [8, 11, 9, 4],
         [7, 0, 7, 27],
-        [7, 4, 28, 14],
-        [3, 10, 26, 7]
+        [7, 4, 28, 14, 200],
+        [3, 10, 26, 7, 100, 200,500],
+        [3, 10, 26, 7, 100, 200,500,422]
     ];
     let sum;
-    const doDai = arr[0].length;
-    for (let i = 0; i < doDai ; i++) {
-        sum =0;
+    let row;
+    for (let a = 0; a < arr.length; a++) {
+        row = arr[0].length;
+        if (arr[a].length > row) {
+            row = arr[a].length;
+        }
+    }
+    for (let i = 0; i < row; i++) {
+        sum = 0;
         for (let j = 0; j < arr.length; j++) {
+            if (arr[j][i] === undefined){
+                arr[j][i] = 0;
+            }
             sum += arr[j][i];
         }
-        document.write("Tổng của các phần tử trong cột " + i + " là " +sum + "<br>");
+        document.write("Tổng của các phần tử trong cột " + i + " là " + sum + "<br>");
     }
 
 </script>
